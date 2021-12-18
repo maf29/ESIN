@@ -1,0 +1,8 @@
+struct nodo{
+	int info;
+	nodo *sig; //Nodo siguiente
+};
+
+nodo *fantasma;	//Apuntar fantasma de la lista enlazada
+nodo *prim;	//Primer elemento de la lista enlazada
+nodo *ult;	//Ultimo elemento de la lista enlazada

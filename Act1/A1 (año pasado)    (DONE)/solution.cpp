@@ -1,0 +1,49 @@
+#include <iostream>
+#include "llista.hpp"
+
+//  Llista simplement encadenada, sense fantasma i no circular
+
+
+//cercar nom_cercat a la llista i insereix l’alumne nom_nou a la posició immediatament posterior
+
+//Si no es troba cap alumne amb nom nom_cercat, el nou alumne va al final de la llista.
+
+void Llista::alumne_nou(string alumne_cercat, string alumne_nou){
+// Pre: True
+// Post: Es dona de alta l'alumne tal com es demana al exercici
+
+	bool trobat = false;
+	node *now = _prim;
+	if(now == NULL){ //Si la lista esa vacía
+		_prim = new node;
+		_prim->info = alumne_nou;
+		
+		now = new node;
+		now->seg = NULL;
+		_long++;
+	}
+	
+	//tractar todos los nodos menos el ultimo
+	while(now->seg != NULL and not trobat){
+		if(alumne_cercat == now->info){
+			node *aux = now->seg;
+			now->seg = new node;
+			now->seg->info = alumne_nou;
+			//now->seg->seg = now->seg;
+			now->seg->seg = aux;
+			
+			_long++;
+			trobat = true;
+		}
+		
+		now = now->seg;
+	}
+	
+	//tractar el ultimo elemento de la lista
+	if(not trobat){
+		now->seg = new node;
+		now->seg->info = alumne_nou;
+		_long++;
+		now->seg->seg = NULL;
+	}
+}

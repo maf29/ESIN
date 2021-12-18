@@ -1,0 +1,18 @@
+Comandos : 
+
+	make 		//Para compilar mas de un archivo
+	./program.exe < sample-1.inp | diff - sample-1.cor		//Ejecutar y mirar las diferencias del output
+	tar cvf lab1.tar conjunt_2enters.rep conjunt_2enters.cpp		// Comprimir
+	
+	
+	//Concatenar varios archivos en un solo archivo
+	//   '/include "llista_itr./d' : esto quiere decir que se eleminie en el nuevo archivo todas las #include "llista_itr.hpp" o #include "llista_itr.cpp"
+	cat llista_itr.hpp llista_itr.t main.cpp | sed '/include "llista_itr./d' > solucio.cpp
+	
+	
+	
+	
+********************COMPILAR*************** 
+g++ -o program.exe solucio.cpp
+
++++++++++++++++++++++++++++++++++++++++++++
